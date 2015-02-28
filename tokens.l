@@ -7,9 +7,20 @@
 #define TOKEN(t)				(yylval.token = t)
 %}
 
+%x								C_COMMENT
+
 %option noyywrap
+%option yylineno
 
 %%
+
+[ \t\n]							;
+"//".*$							;
+"/*"							{ BEGIN(C_COMMENT); }
+<C_COMMENT>"*/" 				{ BEGIN(INITIAL); }
+<C_COMMENT>.					{ }
+
+
 
 "extern"						return TOKEN(TEXTERN);
 "return"						return TOKEN(TRETURN);
