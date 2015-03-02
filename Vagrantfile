@@ -62,5 +62,6 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     apt-get install -y llvm-3.5 llvm-3.5-tools bison flex g++ libz-dev libncurses-dev
+    ln -s /vagrant/ ~/bold
   SHELL
 end
