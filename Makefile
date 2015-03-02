@@ -5,7 +5,6 @@ OBJS = parser.o  \
        main.o    \
        tokens.o  \
        corefn.o  \
-	   native.o  \
 
 LLVMCONFIG = llvm-config-3.5 
 CPPFLAGS = `$(LLVMCONFIG) --cppflags` -std=c++11
